@@ -1,0 +1,43 @@
+<% if user_signed_in? %>
+
+
+
+  <table class = "table table-bordered table-hover">
+    <thead class = "table-dark">
+      <tr>
+        <th>Date Applied</th>
+        <th>Job Title</th>
+        <th>Company Name</th>
+        <th>Status</th>
+        <th colspan = "1"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+    <% @jobs.each do |job| %>
+      <%if job.user == current_user%>
+      <tr>
+        <td><%= job.date_applied %></td>
+        <td>
+          <%= link_to job.job_title, job %>
+         
+          </td>
+        <td><%= job.company_name %></td>
+        <td><%= job.status %></td>
+        <td><%= link_to 'Delete', job, data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'}, class: "btn btn-outline-danger btn-sm" %></td>
+      </tr>
+      <% end %>
+    <% end %>
+    </tbody>
+  </table>
+
+  <br>
+  <%= link_to 'Add Job', new_job_path, class:"btn btn-secondary" %>
+<% else %>
+
+  <h1>Hello World</h1>
+  This is my first Rails Webpage...
+
+
+<% end %>
+

@@ -1,0 +1,11 @@
+<h1>Edit Job</h1>
+<br>
+
+<%= render "form", job: @job %>
+
+<br>
+
+<div>
+   <%= link_to 'Delete', @job, data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'}, class: "btn btn-danger " %>
+  <%= link_to "Back", jobs_path, class:"btn btn-secondary" %>
+</div>
