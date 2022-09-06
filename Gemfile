@@ -7,7 +7,7 @@ gem "rails", "~> 7.0.3", ">= 7.0.3.1"
 
 gem "sprockets-rails"
 
-gem "sqlite3", "~> 1.4"
+
 
 gem "puma", "~> 5.0"
 
@@ -32,9 +32,15 @@ end
 
 group :development do
   gem "web-console"
-
+  gem "sqlite3", "~> 1.4"
 
 end
+
+group :production do 
+  gem 'pg', '~> 1.4', '>= 1.4.3' 
+  #gem 'rails_12factor', '0.0.2'
+end
+  
 
 group :test do
   gem "capybara"
